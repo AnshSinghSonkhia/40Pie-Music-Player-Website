@@ -9,3 +9,6 @@
    <img src = "https://contrib.rocks/image?repo=AnshSinghSonkhia/40Pie-Music-Player-Website"/>
  </a>
 
+## License
+
+Have a look at the [license file](./license) for details
