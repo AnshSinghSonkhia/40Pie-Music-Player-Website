@@ -115,6 +115,7 @@ nav ul li {
     position: absolute;
     left: 10vw;
     font-family: "Varela Round", sans-serif;
+    font-size: 30px;
 }
 
 .songInfo img {
@@ -125,9 +126,10 @@ nav ul li {
 
 
 /*Responsive Layout */
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
     .songInfo{
         left: 4vw;
+        font-size: 20px;
     } 
 }
 
