@@ -3,5 +3,9 @@
 
 ![](https://i.imgur.com/waxVImv.png)
 
+## Thanks to all contributors ❤
 
+ <a href = "https://github.com/AnshSinghSonkhia/40Pie-Music-Player-Website/graphs/contributors">
+   <img src = "https://contrib.rocks/image?repo=AnshSinghSonkhia/40Pie-Music-Player-Website"/>
+ </a>
 
