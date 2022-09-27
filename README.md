@@ -11,4 +11,4 @@
 
 ## License
 
-Have a look at the [license file](./license) for details
+Have a look at the [LICENSE file](./LICENSE) for details
