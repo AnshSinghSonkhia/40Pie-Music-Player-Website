@@ -4,6 +4,11 @@
 
 ![](https://i.imgur.com/waxVImv.png)
 
+# Tech-Stack Used..
+[<img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" title="HTML" alt="HTML" width="60" height="60"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original-wordmark.svg" title="css3" alt="css3" width="60" height="60"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JS" alt="JS" width="60" height="60"/>&nbsp;](https://github.com/AnshSinghSonkhia/40Pie-Music-Player-Website/blob/main/README.md)
+
 ## Thanks to all contributors ❤
 
  <a href = "https://github.com/AnshSinghSonkhia/40Pie-Music-Player-Website/graphs/contributors">
