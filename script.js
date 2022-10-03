@@ -91,7 +91,7 @@ audioElement.addEventListener("timeupdate", () => {
   //   console.log("timeUpdate");
   //Update Seekbar
   progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
-  console.log(progress);
+  //console.log(progress);
   myProgressBar.value = progress;
 });
 
@@ -155,5 +155,21 @@ document.getElementById("previous").addEventListener("click", () => {
   masterPlay.classList.remove("fa-circle-play");
   masterPlay.classList.add("fa-circle-pause");
 });
+
+audioElement.onended = function() {
+  // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
+  if (songIndex >= 9) 
+    songIndex = 0;
+  else 
+    songIndex += 1;
+
+  this.src = `songs/${songIndex + 1}.mp3`;
+  masterSongName.innerText = songs[songIndex].songName;
+  this.currentTime = 0;
+  // the audio player stops after playing each song, so after changing the src just launch the player
+  this.play();
+  masterPlay.classList.remove("fa-circle-play");
+  masterPlay.classList.add("fa-circle-pause");
+}
 
 
