@@ -4,6 +4,8 @@
 
 ![](https://i.imgur.com/waxVImv.png)
 
+<b>Let's Connect: [LinkedIn](https://www.linkedin.com/in/anshsinghsonkhia/)</b>
+
 # Tech-Stack Used..
 [<img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" title="HTML" alt="HTML" width="60" height="60"/>&nbsp;
 <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original-wordmark.svg" title="css3" alt="css3" width="60" height="60"/>&nbsp;
@@ -23,7 +25,9 @@ Thanks Goes To These Wonderful People ❤ <!--([emoji key](https://allcontributo
   <tbody>
     <tr>
       <td align="center"><a href="https://github.com/AnshSinghSonkhia"><img src="https://avatars.githubusercontent.com/u/110414565?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ansh Singh Sonkhia</b></sub><br> :computer: </a></td>
+      <td align="center"><a href="https://github.com/devhvrshu"><img src="https://avatars.githubusercontent.com/u/108367606?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Harsh Mishra</b></sub><br> :computer: </a></td>
       <td align="center"><a href="https://github.com/lyallemma"><img src="https://avatars.githubusercontent.com/u/25173082?v=4?s=100" width="100px;" alt=""/><br /><sub><b>lyallemma</b></sub><br> :computer: </a></td>
+      <td align="center"><a href="https://github.com/Kingsman44"><img src="https://avatars.githubusercontent.com/u/58323485?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shivan Singh</b></sub><br> :computer: </a></td>
      </tr>
   </tbody>
 </table>
