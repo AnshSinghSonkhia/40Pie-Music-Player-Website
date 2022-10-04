@@ -71,18 +71,43 @@ songItems.forEach((element, i) => {
 
 //audioElement.play();
 
+// Pause all song icon
+function pauseall() {
+  songItems.forEach((elements, i) => {
+    var element1 = document.getElementById(i);
+      element1.classList.remove("fa-circle-pause");
+      element1.classList.add("fa-circle-play");
+  });
+}
+
+// Start playing song icon
+function startplay() {
+  newsong = document.getElementById(songIndex);
+  newsong.classList.remove("fa-circle-play");
+  newsong.classList.add("fa-circle-pause");
+}
+
+// Stop playing song icon
+function stopplay() {
+  newsong = document.getElementById(songIndex);
+  newsong.classList.remove("fa-circle-pause");
+  newsong.classList.add("fa-circle-play");
+}
+
 // Handle Play/Pause Click
 masterPlay.addEventListener("click", () => {
   if (audioElement.paused || audioElement.currentTime <= 0) {
     audioElement.play();
     masterPlay.classList.remove("fa-circle-play");
     masterPlay.classList.add("fa-circle-pause");
+    startplay();
     gif.style.opacity = 1;
   } else {
     audioElement.pause();
     masterPlay.classList.remove("fa-circle-pause");
     masterPlay.classList.add("fa-circle-play");
     gif.style.opacity = 0;
+    stopplay();
   }
 });
 
@@ -100,22 +125,13 @@ myProgressBar.addEventListener("change", () => {
     (myProgressBar.value * audioElement.duration) / 100;
 });
 
-const makeAllPlays = () => {
-  Array.from(document.getElementsByClassName("songItemPlay")).forEach(
-    (element) => {
-      element.classList.remove("fa-pause-circle");
-      element.classList.add("fa-play-circle");
-    }
-  );
-};
-
 Array.from(document.getElementsByClassName("songItemPlay")).forEach(
   (element) => {
     element.addEventListener("click", (e) => {
       //   console.log(e.target);
-      makeAllPlays();
       songIndex = parseInt(e.target.id);
-      e.target.classList.remove("fa-circle-play");
+      pauseall();
+      //e.target.classList.remove("fa-circle-play");
       e.target.classList.add("fa-circle-pause");
       audioElement.src = `songs/${songIndex + 1}.mp3`;
       masterSongName.innerText = songs[songIndex].songName;
@@ -138,6 +154,8 @@ document.getElementById("next").addEventListener("click", () => {
   masterSongName.innerText = songs[songIndex].songName;
   audioElement.currentTime = 0;
   audioElement.play();
+  pauseall();
+  startplay();
   masterPlay.classList.remove("fa-circle-play");
   masterPlay.classList.add("fa-circle-pause");
 });
@@ -152,6 +170,8 @@ document.getElementById("previous").addEventListener("click", () => {
   masterSongName.innerText = songs[songIndex].songName;
   audioElement.currentTime = 0;
   audioElement.play();
+  pauseall();
+  startplay();
   masterPlay.classList.remove("fa-circle-play");
   masterPlay.classList.add("fa-circle-pause");
 });
@@ -168,6 +188,8 @@ audioElement.onended = function() {
   this.currentTime = 0;
   // the audio player stops after playing each song, so after changing the src just launch the player
   this.play();
+  pauseall();
+  startplay();
   masterPlay.classList.remove("fa-circle-play");
   masterPlay.classList.add("fa-circle-pause");
 }
