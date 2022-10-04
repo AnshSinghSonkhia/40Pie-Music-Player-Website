@@ -156,7 +156,7 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
 );
 
 document.getElementById("next").addEventListener("click", () => {
-  if (songIndex >= 11) {
+  if (songIndex >= 12) {
     songIndex = 0;
   } else {
     songIndex += 1;
@@ -189,7 +189,7 @@ document.getElementById("previous").addEventListener("click", () => {
 
 audioElement.onended = function() {
   // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
-  if (songIndex >= 11) 
+  if (songIndex >= 12) 
     songIndex = 0;
   else 
     songIndex += 1;
