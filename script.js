@@ -9,6 +9,8 @@ let myProgressBar = document.getElementById("myProgressBar");
 let gif = document.getElementById("gif");
 let masterSongName = document.getElementById("masterSongName");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
+let repeatBtn = document.getElementById("repeat");
+let repeating = false;
 
 let songs = [
   {
@@ -100,6 +102,11 @@ myProgressBar.addEventListener("change", () => {
     (myProgressBar.value * audioElement.duration) / 100;
 });
 
+repeatBtn.addEventListener("click", () => {
+  repeatBtn.classList.toggle("not-repeating");
+  repeating = !repeating;
+});
+
 const makeAllPlays = () => {
   Array.from(document.getElementsByClassName("songItemPlay")).forEach(
     (element) => {
@@ -156,13 +163,12 @@ document.getElementById("previous").addEventListener("click", () => {
   masterPlay.classList.add("fa-circle-pause");
 });
 
-audioElement.onended = function() {
+audioElement.onended = function () {
   // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
-  if (songIndex >= 9) 
-    songIndex = 0;
-  else 
-    songIndex += 1;
-
+  if (!repeating) {
+    if (songIndex >= 9) songIndex = 0;
+    else songIndex += 1;
+  }
   this.src = `songs/${songIndex + 1}.mp3`;
   masterSongName.innerText = songs[songIndex].songName;
   this.currentTime = 0;
@@ -170,6 +176,4 @@ audioElement.onended = function() {
   this.play();
   masterPlay.classList.remove("fa-circle-play");
   masterPlay.classList.add("fa-circle-pause");
-}
-
-
+};
