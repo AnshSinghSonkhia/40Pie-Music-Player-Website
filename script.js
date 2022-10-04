@@ -11,6 +11,9 @@ let masterSongName = document.getElementById("masterSongName");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
 let currTime = document.querySelector(".current-time");
 let totalDuration = document.querySelector(".total-duration");
+let timeStamp = document.querySelectorAll(".timestamp");
+
+let durationArray = [];
 
 let songs = [
   {
@@ -77,10 +80,28 @@ let songs = [
 ];
 
 songItems.forEach((element, i) => {
-  console.log(element, i);
+  // console.log(element, i);
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("songName")[0].innerHTML = songs[i].songName;
+  
+  //calculating total duration
+  let audio = new Audio(songs[i].filePath);
+  audio.onloadedmetadata = function() {
+    let durationMinutes = Math.floor(audio.duration / 60);
+    let durationSeconds = Math.floor(
+      audio.duration - durationMinutes * 60
+    );
+
+    let time = durationMinutes + ":" + durationSeconds;
+
+    element.getElementsByClassName("timestamp")[0].innerText = time;
+    
+    durationArray[i] = time;
+  };
+  
 });
+
+// console.log(durationArray);
 
 //audioElement.play();
 
@@ -126,10 +147,10 @@ masterPlay.addEventListener("click", () => {
 
 // Listen to Events
 audioElement.addEventListener("timeupdate", () => {
-  //   console.log("timeUpdate");
+
   //Update Seekbar
   progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
-  //console.log(progress);
+
   myProgressBar.value = progress;
 
   // Calculate current time left and total duration
@@ -159,6 +180,8 @@ audioElement.addEventListener("timeupdate", () => {
   currTime.textContent = currentMinutes + ":" + currentSeconds;
   totalDuration.textContent = durationMinutes + ":" + durationSeconds;
 
+  //update timeStamp
+  timeStamp[songIndex].textContent = (durationMinutes - currentMinutes) + ":" + (durationSeconds - currentSeconds);
 });
 
 myProgressBar.addEventListener("change", () => {
@@ -186,6 +209,10 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
 );
 
 document.getElementById("next").addEventListener("click", () => {
+
+  //Reset timestamp
+  timeStamp[songIndex].textContent = durationArray[songIndex]
+
   if (songIndex >= 12) {
     songIndex = 0;
   } else {
@@ -202,6 +229,10 @@ document.getElementById("next").addEventListener("click", () => {
 });
 
 document.getElementById("previous").addEventListener("click", () => {
+
+  //Reset timestamp
+  timeStamp[songIndex].textContent = durationArray[songIndex]
+
   if (songIndex <= 0) {
     songIndex = 0;
   } else {
@@ -218,6 +249,10 @@ document.getElementById("previous").addEventListener("click", () => {
 });
 
 audioElement.onended = function() {
+
+  //Reset timestamp
+  timeStamp[songIndex].textContent = durationArray[songIndex]
+
   // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
   if (songIndex >= 12) 
     songIndex = 0;

@@ -104,7 +104,8 @@ nav ul li {
 }
 
 .timestamp {
-    margin: 0 23px;
+    /* margin: 0 23px; */
+    margin-left: 23px;
 }
 
 .timestamp i {
@@ -132,6 +133,10 @@ align-items: center;
 .current-time,
 .total-duration {
 padding: 10px;
+}
+
+.songListPlay{
+    margin: 20px;
 }
 
 
