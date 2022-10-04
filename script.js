@@ -66,6 +66,12 @@ let songs = [
     filePath: "songs/11.mp3",
     coverPath: "covers/11.jpg",
   },
+  {
+    songName: "Nero-Promises",
+    filePath:"songs/12.mp3",
+    coverPath:"covers/12.jpg"
+    
+  },
 ];
 
 songItems.forEach((element, i) => {
