@@ -17,7 +17,7 @@ let songs = [
     coverPath: "covers/1.jpg",
   },
   {
-    songName: "Pushpa Zhukega Nhi",
+    songName: "Pushpa Jhukega Nhi",
     filePath: "songs/2.mp3",
     coverPath: "covers/2.jpg",
   },
@@ -60,6 +60,11 @@ let songs = [
     songName: "Bakbaas Gaana",
     filePath: "songs/10.mp3",
     coverPath: "covers/10.jpg",
+  },
+  {
+    songName: "Tsunami",
+    filePath: "songs/11.mp3",
+    coverPath: "covers/11.jpg",
   },
 ];
 
@@ -145,7 +150,7 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
 );
 
 document.getElementById("next").addEventListener("click", () => {
-  if (songIndex >= 9) {
+  if (songIndex >= 11) {
     songIndex = 0;
   } else {
     songIndex += 1;
@@ -178,7 +183,7 @@ document.getElementById("previous").addEventListener("click", () => {
 
 audioElement.onended = function() {
   // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
-  if (songIndex >= 9) 
+  if (songIndex >= 11) 
     songIndex = 0;
   else 
     songIndex += 1;
