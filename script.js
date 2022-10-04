@@ -9,8 +9,12 @@ let myProgressBar = document.getElementById("myProgressBar");
 let gif = document.getElementById("gif");
 let masterSongName = document.getElementById("masterSongName");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
+
 let repeatBtn = document.getElementById("repeat");
 let repeating = false;
+let currTime = document.querySelector(".current-time");
+let totalDuration = document.querySelector(".total-duration");
+
 
 let songs = [
   {
@@ -131,6 +135,34 @@ audioElement.addEventListener("timeupdate", () => {
   progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
   //console.log(progress);
   myProgressBar.value = progress;
+
+  // Calculate current time left and total duration
+  let currentMinutes = Math.floor(audioElement.currentTime / 60);
+  let currentSeconds = Math.floor(
+    audioElement.currentTime - currentMinutes * 60
+  );
+  let durationMinutes = Math.floor(audioElement.duration / 60);
+  let durationSeconds = Math.floor(
+    audioElement.duration - durationMinutes * 60
+  );
+
+  if (currentSeconds < 10) {
+    currentSeconds = "0" + currentSeconds;
+  }
+  if (durationSeconds < 10) {
+    durationSeconds = "0" + durationSeconds;
+  }
+  if (currentMinutes < 10) {
+    currentMinutes = "0" + currentMinutes;
+  }
+  if (durationMinutes < 10) {
+    durationMinutes = "0" + durationMinutes;
+  }
+
+  // Updated duration
+  currTime.textContent = currentMinutes + ":" + currentSeconds;
+  totalDuration.textContent = durationMinutes + ":" + durationSeconds;
+
 });
 
 myProgressBar.addEventListener("change", () => {

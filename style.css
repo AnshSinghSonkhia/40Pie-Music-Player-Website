@@ -123,8 +123,20 @@ nav ul li {
   transition: opacity 0.4s ease-in;
 }
 
+
 .not-repeating {
   color: #ccc;
+}
+
+.slider_container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.current-time,
+.total-duration {
+padding: 10px;
 }
 
 /*Responsive Layout */
