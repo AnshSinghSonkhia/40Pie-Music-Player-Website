@@ -69,7 +69,7 @@ let songs = [
   {
     songName: "Nero-Promises",
     filePath:"songs/12.mp3",
-    coverPath:"cover/12.jpg"
+    coverPath:"covers/12.jpg"
     
   },
 ];
