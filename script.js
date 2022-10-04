@@ -9,6 +9,8 @@ let myProgressBar = document.getElementById("myProgressBar");
 let gif = document.getElementById("gif");
 let masterSongName = document.getElementById("masterSongName");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
+let currTime = document.querySelector(".current-time");
+let totalDuration = document.querySelector(".total-duration");
 
 let songs = [
   {
@@ -80,8 +82,8 @@ songItems.forEach((element, i) => {
 function pauseall() {
   songItems.forEach((elements, i) => {
     var element1 = document.getElementById(i);
-      element1.classList.remove("fa-circle-pause");
-      element1.classList.add("fa-circle-play");
+    element1.classList.remove("fa-circle-pause");
+    element1.classList.add("fa-circle-play");
   });
 }
 
@@ -118,11 +120,38 @@ masterPlay.addEventListener("click", () => {
 
 // Listen to Events
 audioElement.addEventListener("timeupdate", () => {
-  //   console.log("timeUpdate");
+
   //Update Seekbar
   progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
-  //console.log(progress);
+
   myProgressBar.value = progress;
+
+  // Calculate current time left and total duration
+  let currentMinutes = Math.floor(audioElement.currentTime / 60);
+  let currentSeconds = Math.floor(
+    audioElement.currentTime - currentMinutes * 60
+  );
+  let durationMinutes = Math.floor(audioElement.duration / 60);
+  let durationSeconds = Math.floor(
+    audioElement.duration - durationMinutes * 60
+  );
+
+  if (currentSeconds < 10) {
+    currentSeconds = "0" + currentSeconds;
+  }
+  if (durationSeconds < 10) {
+    durationSeconds = "0" + durationSeconds;
+  }
+  if (currentMinutes < 10) {
+    currentMinutes = "0" + currentMinutes;
+  }
+  if (durationMinutes < 10) {
+    durationMinutes = "0" + durationMinutes;
+  }
+
+  // Updated duration
+  currTime.textContent = currentMinutes + ":" + currentSeconds;
+  totalDuration.textContent = durationMinutes + ":" + durationSeconds;
 });
 
 myProgressBar.addEventListener("change", () => {
@@ -184,9 +213,9 @@ document.getElementById("previous").addEventListener("click", () => {
 audioElement.onended = function() {
   // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
   if (songIndex >= 11) 
-    songIndex = 0;
+  songIndex = 0;
   else 
-    songIndex += 1;
+  songIndex += 1;
 
   this.src = `songs/${songIndex + 1}.mp3`;
   masterSongName.innerText = songs[songIndex].songName;
