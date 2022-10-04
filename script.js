@@ -17,7 +17,7 @@ let songs = [
     coverPath: "covers/1.jpg",
   },
   {
-    songName: "Pushpa Zhukega Nhi",
+    songName: "Pushpa Jhukega Nhi",
     filePath: "songs/2.mp3",
     coverPath: "covers/2.jpg",
   },
@@ -60,6 +60,11 @@ let songs = [
     songName: "Bakbaas Gaana",
     filePath: "songs/10.mp3",
     coverPath: "covers/10.jpg",
+  },
+  {
+    songName: "Tsunami",
+    filePath: "songs/11.mp3",
+    coverPath: "covers/11.jpg",
   },
 ];
 
