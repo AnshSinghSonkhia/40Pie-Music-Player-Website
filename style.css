@@ -97,6 +97,7 @@ nav ul li {
     justify-content: space-between;
     align-items: center;
     border-radius: 34px;
+    cursor: pointer;
 }
 
 .songItem img {
@@ -227,4 +228,7 @@ padding: 10px;
 }
 .nav__link:hover{
     color: #1DB954; /*Added the official green color used by spotify*/
+}
+.playing{
+    background-color: #1DB954;
 }
