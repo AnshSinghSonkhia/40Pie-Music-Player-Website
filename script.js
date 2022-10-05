@@ -74,8 +74,18 @@ let songs = [
   {
     songName: "Nero-Promises",
     filePath:"songs/12.mp3",
-    coverPath:"covers/12.jpg"
+    coverPath:"covers/12.jpeg"
     
+  },
+  {
+    songName: "Tera Yaar Hoon Main",
+    filePath: "songs/13.mp3",
+    coverPath: "covers/13.jpg",
+  },
+  {
+    songName: "Low",
+    filePath: "songs/14.mp3",
+    coverPath: "covers/14.jpg",
   },
 ];
 
@@ -211,9 +221,9 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
 document.getElementById("next").addEventListener("click", () => {
 
   //Reset timestamp
-  timeStamp[songIndex].textContent = durationArray[songIndex]
-
-  if (songIndex >= 12) {
+  timeStamp[songIndex].textContent = durationArray[songIndex];
+  
+  if (songIndex >= 14) {
     songIndex = 0;
   } else {
     songIndex += 1;
@@ -254,7 +264,7 @@ audioElement.onended = function() {
   timeStamp[songIndex].textContent = durationArray[songIndex]
 
   // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
-  if (songIndex >= 12) 
+  if (songIndex >= 14) 
     songIndex = 0;
   else 
     songIndex += 1;
