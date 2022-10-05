@@ -74,6 +74,11 @@ let songs = [
     coverPath:"covers/12.jpeg"
     
   },
+  {
+    songName: "Tera Yaar Hoon Main",
+    filePath: "songs/13.mp3",
+    coverPath: "covers/13.jpg",
+  },
 ];
 
 songItems.forEach((element, i) => {
@@ -186,7 +191,7 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
 );
 
 document.getElementById("next").addEventListener("click", () => {
-  if (songIndex >= 12) {
+  if (songIndex >= 13) {
     songIndex = 0;
   } else {
     songIndex += 1;
@@ -219,7 +224,7 @@ document.getElementById("previous").addEventListener("click", () => {
 
 audioElement.onended = function() {
   // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
-  if (songIndex >= 12) 
+  if (songIndex >= 13) 
     songIndex = 0;
   else 
     songIndex += 1;
