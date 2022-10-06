@@ -84,6 +84,11 @@ let songs = [
     filePath: "songs/14.mp3",
     coverPath: "covers/14.jpg",
   },
+  {
+    songName: "Dilbar - Neha Kukar",
+    filePath: "songs/15.mp3",
+    coverPath: "covers/15.jpg",
+  },
 ];
 
 songItems.forEach((element, i) => {
