@@ -144,6 +144,7 @@ padding: 10px;
     } 
 }
 
+/*Responsive Layout for max-width: 1050px*/
 @media (max-width: 1050px) {
     .songInfo{
         left: 4vw;
