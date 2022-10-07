@@ -200,6 +200,7 @@ padding: 10px;
     } 
 }
 
+/*Responsive Layout for max-width: 315px*/
 @media (max-width: 315px) {
     .songName{
         font-size: 13px;
