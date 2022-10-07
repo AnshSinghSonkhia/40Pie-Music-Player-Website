@@ -177,6 +177,7 @@ padding: 10px;
     } 
 }
 
+/*Responsive Layout for max-width: 600px*/
 @media (max-width: 600px) {
     .timestamp {
         margin: 0 3px;
