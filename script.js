@@ -86,12 +86,10 @@ let songs = [
   },
 ];
 
-//Making a map to store songName and there index value
-const songIndexValPair = new Map();
 songItems.forEach((element, i) => {
+  console.log(element, i);
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("songName")[0].innerHTML = songs[i].songName;
-  songIndexValPair.set(songs[i].songName,i);
 });
 
 //audioElement.play();
@@ -203,10 +201,6 @@ document.getElementById("next").addEventListener("click", () => {
   } else {
     songIndex += 1;
   }
-  //Adding removePlaying function to remove highlight from previous song
-  removingPlaying();
-  //Adding addPlaying to add highlight to the currently playing song.
-  addPlaying(songIndex);
   audioElement.src = `songs/${songIndex + 1}.mp3`;
   masterSongName.innerText = songs[songIndex].songName;
   audioElement.currentTime = 0;
@@ -223,10 +217,6 @@ document.getElementById("previous").addEventListener("click", () => {
   } else {
     songIndex -= 1;
   }
-  //Adding removePlaying function to remove highlight from previous song
-  removingPlaying();
-  //Adding addPlaying to add highlight to the currently playing song.
-  addPlaying(songIndex);
   audioElement.src = `songs/${songIndex + 1}.mp3`;
   masterSongName.innerText = songs[songIndex].songName;
   audioElement.currentTime = 0;
@@ -243,10 +233,7 @@ audioElement.onended = function() {
     songIndex = 0;
   else 
     songIndex += 1;
-  //Adding removePlaying function to remove highlight from previous song
-  removingPlaying();
-  //Adding addPlaying to add highlight to the currently playing song.
-  addPlaying(songIndex);
+
   this.src = `songs/${songIndex + 1}.mp3`;
   masterSongName.innerText = songs[songIndex].songName;
   this.currentTime = 0;
@@ -257,55 +244,5 @@ audioElement.onended = function() {
   masterPlay.classList.remove("fa-circle-play");
   masterPlay.classList.add("fa-circle-pause");
 }
-//Implementing responsive behaviour of songs container.
-//Selecting tags with songItem class.
-const songItem = document.querySelectorAll('.songItem');
-
-//Creating a function to add playing class which will highlight the playing song.
-const addPlaying = function (i) {
-  // console.log(songItem[0]);
-  songItem.forEach(function (val) {
-    // console.log(val.id)
-    if(val.id === `songItem${i}`)
-    {
-      val.classList.add('playing')
-    }
-  })
-}
-
-//Creating a function to remove playing class whenever other music starts playing.
-const removingPlaying = function(){
-  songItem.forEach(function(val){
-  // console.log(val.classList.value);
-  if(val.classList.value==='songItem playing'){
-    val.classList.remove('playing');
-  }
-
-})
-}
-
-//Code for implentation of clicking on the song in songs container and then playing it from there. 
-songItem.forEach(function(val){
-  val.addEventListener('click',function(e){
-    removingPlaying();
-    currentSong = e.path[0].innerHTML;
-    if(e.path[1].classList.value==='songItem'){
-      e.path[1].classList.add('playing');
-      songs.forEach(function(e){
-        if(currentSong===e.songName){
-          songIndex = songIndexValPair.get(currentSong);
-          songFilePath = songs[songIndex].filePath;
-          audioElement.src = songFilePath;
-          audioElement.play();
-          masterSongName.innerText = songs[songIndex].songName;
-          masterPlay.classList.remove("fa-circle-play");
-          masterPlay.classList.add("fa-circle-pause");
-          gif.style.opacity = 1;
-        }
-      })
-    }
-
-  })
-})
 
 
