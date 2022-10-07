@@ -137,6 +137,7 @@ padding: 10px;
 
 
 /*Responsive Layout */
+/*Responsive Layout for max-width: 1250px*/
 @media (max-width: 1250px) {
     .songInfo{
         font-size: 25px;
