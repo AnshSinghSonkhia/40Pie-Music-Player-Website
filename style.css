@@ -1,13 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Varela+Round&display=swap");
 
 body {
-    background-color: antiquewhite;
+    background-color: #A6F0C6;
     font-family: "Lato", sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
+}
+
+.details{
+    line-height: 0.5;
+    margin-top: 4rem 5rem 0 4rem;
+    padding: 0.5;
+    text-align: center;
+    color: white ;
+    background-color: #1C1427;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+a{
+    color: white;
+    text-decoration: none;
 }
 
 nav {
@@ -22,7 +38,7 @@ nav ul {
     /* background-color: black; */
     height: 65px;
     /* color: white; */
-    background-color: #4c0027;
+    background-color: #0F1123;
     color: white;
 }
 
