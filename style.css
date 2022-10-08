@@ -56,6 +56,17 @@ nav ul li {
     background: url(images/bg.jpg) no-repeat;
 }
 
+.details{
+    line-height: 0.5;
+    margin-top: 4rem 5rem 0 4rem;
+    padding: 0.5;
+    text-align: center;
+    color: white ;
+    background-color: #1C1427;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .bottom {
     position: sticky;
     height: 130px;
