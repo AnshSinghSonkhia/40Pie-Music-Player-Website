@@ -140,12 +140,14 @@ padding: 10px;
 }
 
 /*Responsive Layout */
+/*Responsive Layout for max-width: 1250px*/
 @media (max-width: 1250px) {
   .songInfo {
     font-size: 25px;
   }
 }
 
+/*Responsive Layout for max-width: 1050px*/
 @media (max-width: 1050px) {
   .songInfo {
     left: 4vw;
@@ -178,6 +180,7 @@ padding: 10px;
   }
 }
 
+/*Responsive Layout for max-width: 600px*/
 @media (max-width: 600px) {
   .timestamp {
     margin: 0 3px;
@@ -201,6 +204,7 @@ padding: 10px;
   }
 }
 
+/*Responsive Layout for max-width: 315px*/
 @media (max-width: 315px) {
   .songName {
     font-size: 13px;
@@ -216,4 +220,9 @@ padding: 10px;
   .songItem {
     height: 75px;
   }
+}
+
+a{
+    text-decoration: none;
+    color:white;
 }
