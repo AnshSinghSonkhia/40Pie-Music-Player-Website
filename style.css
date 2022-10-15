@@ -53,7 +53,12 @@ nav ul li {
     width: 70%;
     border-radius: 12px;
     padding: 34px;
-    background: url(images/bg.jpg) no-repeat;
+    /*background: url(images/bg.jpg) no-repeat;*/
+    font-size: 10px;
+    padding-left: 37px;
+    margin-top: -11px;
+
+
 }
 
 .bottom {
@@ -66,6 +71,8 @@ nav ul li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: -53px;
+    padding-bottom: -6px;
 }
 
 .icons {
@@ -95,6 +102,7 @@ nav ul li {
     justify-content: space-between;
     align-items: center;
     border-radius: 34px;
+    padding-right: 8px;
 }
 
 .songItem img {
