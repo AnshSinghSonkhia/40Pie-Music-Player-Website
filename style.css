@@ -14,8 +14,17 @@ nav {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+nav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
 
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
 nav ul {
+  width: 100%;
   display: flex;
   align-items: center;
   list-style-type: none;
