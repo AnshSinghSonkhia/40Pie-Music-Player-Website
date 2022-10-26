@@ -70,9 +70,8 @@ let songs = [
   },
   {
     songName: "Nero-Promises",
-    filePath:"songs/12.mp3",
-    coverPath:"covers/12.jpeg"
-    
+    filePath: "songs/12.mp3",
+    coverPath: "covers/12.jpeg",
   },
   {
     songName: "Tera Yaar Hoon Main",
@@ -83,6 +82,11 @@ let songs = [
     songName: "Low",
     filePath: "songs/14.mp3",
     coverPath: "covers/14.jpg",
+  },
+  {
+    songName: "Tera Yaar Hoon Main",
+    filePath: "songs/13.mp3",
+    coverPath: "covers/13.jpg",
   },
 ];
 
@@ -98,8 +102,8 @@ songItems.forEach((element, i) => {
 function pauseall() {
   songItems.forEach((elements, i) => {
     var element1 = document.getElementById(i);
-      element1.classList.remove("fa-circle-pause");
-      element1.classList.add("fa-circle-play");
+    element1.classList.remove("fa-circle-pause");
+    element1.classList.add("fa-circle-play");
   });
 }
 
@@ -168,7 +172,6 @@ audioElement.addEventListener("timeupdate", () => {
   // Updated duration
   currTime.textContent = currentMinutes + ":" + currentSeconds;
   totalDuration.textContent = durationMinutes + ":" + durationSeconds;
-
 });
 
 myProgressBar.addEventListener("change", () => {
@@ -227,12 +230,10 @@ document.getElementById("previous").addEventListener("click", () => {
   masterPlay.classList.add("fa-circle-pause");
 });
 
-audioElement.onended = function() {
+audioElement.onended = function () {
   // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
-  if (songIndex >= 14) 
-    songIndex = 0;
-  else 
-    songIndex += 1;
+  if (songIndex >= 14) songIndex = 0;
+  else songIndex += 1;
 
   this.src = `songs/${songIndex + 1}.mp3`;
   masterSongName.innerText = songs[songIndex].songName;
@@ -243,6 +244,95 @@ audioElement.onended = function() {
   startplay();
   masterPlay.classList.remove("fa-circle-play");
   masterPlay.classList.add("fa-circle-pause");
-}
+};
 
+// apply pagination to songs list
+const paginationNumbers = document.getElementById("pagination-numbers");
+const paginatedList = document.getElementById("paginated-list");
+const listItems = document.querySelectorAll(".songItem");
+const nextButton = document.getElementById("next-button");
+const prevButton = document.getElementById("prev-button");
+const paginationLimit = 7;
+const pageCount = Math.ceil(listItems.length / paginationLimit);
 
+let currentPage = 1;
+
+const disableButton = (button) => {
+  button.classList.add("disabled");
+  button.setAttribute("disabled", true);
+};
+
+const enableButton = (button) => {
+  button.classList.remove("disabled");
+  button.removeAttribute("disabled");
+};
+const handlePageButtonsStatus = () => {
+  if (currentPage === 1) {
+    disableButton(prevButton);
+  } else {
+    enableButton(prevButton);
+  }
+
+  if (pageCount === currentPage) {
+    disableButton(nextButton);
+  } else {
+    enableButton(nextButton);
+  }
+};
+
+const handleActivePageNumber = () => {
+  document.querySelectorAll(".pagination-numbers").forEach((button) => {
+    button.classList.remove("active");
+  });
+  document
+    .querySelector(`.pagination-numbers[data-page="${currentPage}"]`)
+    .classList.add("active");
+};
+
+const handlePagination = (page) => {
+  currentPage = page;
+  paginatedList.innerHTML = "";
+  handleActivePageNumber();
+  handlePageButtonsStatus();
+
+  const startIndex = (currentPage - 1) * paginationLimit;
+  const endIndex = startIndex + paginationLimit;
+  const paginatedItems = [...listItems].slice(startIndex, endIndex);
+  paginatedItems.forEach((item) => {
+    paginatedList.appendChild(item);
+  });
+};
+
+const handleNextButtonClick = () => {
+  handlePagination(currentPage + 1);
+};
+
+const handlePrevButtonClick = () => {
+  handlePagination(currentPage - 1);
+};
+
+const handlePageNumberClick = (e) => {
+  handlePagination(parseInt(e.target.dataset.page));
+};
+
+const createPaginationNumbers = () => {
+  for (let i = 1; i <= pageCount; i++) {
+    const button = document.createElement("button");
+    button.classList.add("pagination-numbers");
+    button.setAttribute("data-page", i);
+    button.innerText = i;
+    paginationNumbers.appendChild(button);
+  }
+};
+
+const handlePaginationNumbers = () => {
+  createPaginationNumbers();
+  document.querySelectorAll(".pagination-numbers ").forEach((button) => {
+    button.addEventListener("click", handlePageNumberClick);
+  });
+  handlePagination(1);
+};
+
+nextButton.addEventListener("click", handleNextButtonClick);
+prevButton.addEventListener("click", handlePrevButtonClick);
+handlePaginationNumbers();
