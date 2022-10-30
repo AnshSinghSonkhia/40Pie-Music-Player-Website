@@ -70,9 +70,8 @@ let songs = [
   },
   {
     songName: "Nero-Promises",
-    filePath:"songs/12.mp3",
-    coverPath:"covers/12.jpeg"
-    
+    filePath: "songs/12.mp3",
+    coverPath: "covers/12.jpeg",
   },
   {
     songName: "Tera Yaar Hoon Main",
@@ -86,11 +85,25 @@ let songs = [
   },
 ];
 
-songItems.forEach((element, i) => {
-  console.log(element, i);
-  element.getElementsByTagName("img")[0].src = songs[i].coverPath;
-  element.getElementsByClassName("songName")[0].innerHTML = songs[i].songName;
-});
+// Treating songs as the single source of main data
+const songItemContainer =
+  document.getElementsByClassName("songItemContainer")[0];
+const createSongs = (allSongs) =>
+  allSongs.map((song, index) => {
+    return `<div class="songItem">
+    <img alt="${index}" src="${song.coverPath}"/>
+    <span class="songName">${song.songName}</span>
+    <span class="songListPlay">
+      <span class="timestamp"
+        >05:34
+        <i id="${index}" class="fa-solid songItemPlay fa-circle-play"></i
+      ></span>
+    </span>
+  </div>`;
+  });
+songItemContainer.innerHTML = createSongs(songs).join("");
+
+console.log(songItemContainer);
 
 //audioElement.play();
 
@@ -98,8 +111,8 @@ songItems.forEach((element, i) => {
 function pauseall() {
   songItems.forEach((elements, i) => {
     var element1 = document.getElementById(i);
-      element1.classList.remove("fa-circle-pause");
-      element1.classList.add("fa-circle-play");
+    element1.classList.remove("fa-circle-pause");
+    element1.classList.add("fa-circle-play");
   });
 }
 
@@ -168,7 +181,6 @@ audioElement.addEventListener("timeupdate", () => {
   // Updated duration
   currTime.textContent = currentMinutes + ":" + currentSeconds;
   totalDuration.textContent = durationMinutes + ":" + durationSeconds;
-
 });
 
 myProgressBar.addEventListener("change", () => {
@@ -227,12 +239,10 @@ document.getElementById("previous").addEventListener("click", () => {
   masterPlay.classList.add("fa-circle-pause");
 });
 
-audioElement.onended = function() {
+audioElement.onended = function () {
   // change the song index to the index of next song, if the song is the last one in the playlist then the next should be the first one
-  if (songIndex >= 14) 
-    songIndex = 0;
-  else 
-    songIndex += 1;
+  if (songIndex >= 14) songIndex = 0;
+  else songIndex += 1;
 
   this.src = `songs/${songIndex + 1}.mp3`;
   masterSongName.innerText = songs[songIndex].songName;
@@ -243,6 +253,4 @@ audioElement.onended = function() {
   startplay();
   masterPlay.classList.remove("fa-circle-play");
   masterPlay.classList.add("fa-circle-pause");
-}
-
-
+};
