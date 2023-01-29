@@ -39,7 +39,7 @@ Thanks Goes To These Wonderful People ❤ <!--([emoji key](https://allcontributo
 ![](https://i.imgur.com/waxVImv.png)
 
 
-<!--
+<!-- 
 ## Thanks to all contributors ❤
 
  <a href = "https://github.com/AnshSinghSonkhia/40Pie-Music-Player-Website/graphs/contributors">
