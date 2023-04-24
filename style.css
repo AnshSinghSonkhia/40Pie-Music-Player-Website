@@ -55,6 +55,8 @@ nav ul li {
     border-radius: 12px;
     padding: 34px;
     background: url(images/bg.jpg) no-repeat;
+    background-position-x: center;
+    background-size: cover;
 }
 
 .bottom {
@@ -191,15 +193,34 @@ padding: 10px;
 }
 
 @media (max-width: 450px) {
+    .songItemContainer {
+        margin-top: 34px;
+    }
     .timestamp {
-        margin: 0 1px;
-        font-size: 14px;
+        margin: 0 15px 0 0;
+        font-size: 12px;
+        display: flex;
+    }
+    .timestamp i{
+        margin-left: 3px;
     }
     .songInfo{
         left: 0vw;
         font-size: 10px;
         position: relative;
-    } 
+    }
+    .songItem img {
+        width: 43px;
+        margin: 0 4px;
+        border-radius: 34px;
+    }
+    .songName{
+        font-size: 13px;
+        width: 100%;
+    }
+    #myProgressBar {
+        width: 70vw;
+    }
 }
 
 /*Responsive Layout for max-width: 315px*/
