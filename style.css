@@ -54,7 +54,7 @@ nav ul li {
     width: 70%;
     border-radius: 12px;
     padding: 34px;
-    background: url(images/bg.jpg) no-repeat;
+/*     background: url(images/bg.jpg) no-repeat; */
 }
 
 .bottom {
@@ -67,6 +67,8 @@ nav ul li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 20vh;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .icons {
@@ -96,6 +98,7 @@ nav ul li {
     justify-content: space-between;
     align-items: center;
     border-radius: 34px;
+    cursor: pointer;
 }
 
 .songItem img {
@@ -223,4 +226,19 @@ padding: 10px;
 a{
     text-decoration: none;
     color:white;
+}
+/*Styling Home and About button*/
+.nav__link{
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+
+}
+.nav__link:hover{
+    color: #1DB954; /*Added the official green color used by spotify*/
+}
+.playing{
+    background-color: #1DB954;
 }
